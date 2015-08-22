@@ -111,7 +111,7 @@ const char *convertKeyCode(int keyCode) {
         case 30:  return "$";
         case 31:  return "o";
         case 32:  return "u";
-        case 33:  return "";
+        case 33:  return "^";
         case 34:  return "i";
         case 35:  return "p";
         case 37:  return "l";
@@ -120,11 +120,11 @@ const char *convertKeyCode(int keyCode) {
         case 40:  return "k";
         case 41:  return "m";
         case 42:  return "";
-        case 43:  return ",";
-        case 44:  return ":";
+        case 43:  return ";";
+        case 44:  return "=";
         case 45:  return "n";
         case 46:  return ",";
-        case 47:  return ";";
+        case 47:  return ":";
         case 50:  return "";
         case 65:  return "<Decimal>";
         case 67:  return "<Asterisk>";
