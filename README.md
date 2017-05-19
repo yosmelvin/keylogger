@@ -1,7 +1,8 @@
-> ## Why The Fork?
+> ### Why The Fork?
 >
 > - use a notation closer to [logkeys](https://github.com/kernc/logkeys) one
 > - maintain additional key mappings in separate branches (PR welcome)
+---
 
 # Mac OS X Keylogger
 
